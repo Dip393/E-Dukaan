@@ -3,6 +3,7 @@ import {useParams, Link} from 'react-router-dom'
 import {ShopContext} from '../context/ShopContext'
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
+import { toast } from 'react-toastify';
 
 const Product = () => {
 
@@ -14,8 +15,12 @@ const Product = () => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
   const handleAddToCart = () => {
-    addtoCart(productData._id, size);
-    setIsAddedToCart(true);
+    if (!size) {
+      toast.error('Select Product Size');
+    }else{
+      addtoCart(productData._id, size);
+      setIsAddedToCart(true);
+    }
   };
 
 
@@ -74,18 +79,17 @@ const Product = () => {
               }
             </div>
           </div>
-          {isAddedToCart ? (
-            <button className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700">
-              <Link to="/cart">GO TO CART</Link>
-            </button>
-          ) : (
-            <button
+          <button
               onClick={handleAddToCart}
               className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700"
             >
               ADD TO CART
             </button>
-          )}
+            {isAddedToCart && (
+              <button className="bg-black text-white ml-5 px-8 py-3 text-sm active:bg-gray-700">
+                <Link to="/cart">GO TO CART</Link>
+              </button>
+            )}
           <hr className='mt-8 sm:w-4/5'/>
           <div className='text-sm text-gary-500 mt-5 flex flex-col gap-1'>
             <p>100%Original Product</p>
