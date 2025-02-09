@@ -5,6 +5,7 @@ import BestSeller from '../components/BestSeller'
 import OurPolicy from '../components/OurPolicy'
 import NewsletterBox from '../components/NewsletterBox'
 import Community from '../components/community'
+import ChatBot from '../components/ChatBot'
 const Home = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ const Home = () => {
       <OurPolicy/>
       <NewsletterBox/>
       <Community/>
+      <ChatBot/>
     </div>
   )
 }

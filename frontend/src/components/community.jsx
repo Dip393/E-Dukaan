@@ -9,9 +9,9 @@ const Community = () => {
         href={whatsappLink}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-9 px-6 py-3 text-white bg-green-500 rounded-lg shadow-lg hover:bg-green-600 transition duration-300"
+        className="mt-9 px-6 py-3 text-white bg-black rounded-lg shadow-lg hover:bg-gray-600 transition duration-300"
       >
-        Join Our WhatsApp Community
+        Join Our Community
       </a>
     </div>
   );
